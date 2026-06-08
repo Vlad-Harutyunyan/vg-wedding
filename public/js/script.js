@@ -58,10 +58,10 @@
       'status.no':"Thank you for letting us know, {name}. You'll be missed."
     },
     ru: {
-      'names':'Влад и Галина',
+      'names':'Vlad &amp; Galina',
       'hero.topdate':'4 июля 2026 — Ереван',
       'letter.eyebrow':'вместе со своими семьями',
-      'letter.names':'Влад <span>и</span> Галина',
+      'letter.names':'Vlad <span>&amp;</span> Galina',
       'letter.invite':'приглашают вас разделить радость',
       'letter.day':'Суббота','letter.place':'Ереван, Армения',
       'scrollHint':'прокрутите, чтобы открыть',
@@ -104,10 +104,10 @@
       'status.no':'Спасибо, что сообщили, {name}. Нам будет вас не хватать.'
     },
     hy: {
-      'names':'Վլադ և Գալինա',
+      'names':'Vlad &amp; Galina',
       'hero.topdate':'4 հուլիսի 2026 — Երևան',
       'letter.eyebrow':'ընտանիքների հետ միասին',
-      'letter.names':'Վլադ <span>և</span> Գալինա',
+      'letter.names':'Vlad <span>&amp;</span> Galina',
       'letter.invite':'սիրով հրավիրում են Ձեզ',
       'letter.day':'Շաբաթ','letter.place':'Երևան, Հայաստան',
       'scrollHint':'ոլորեք՝ բացելու համար',
