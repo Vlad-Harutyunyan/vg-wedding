@@ -208,6 +208,7 @@
       envelope.style.setProperty('--flap', flap.toFixed(3));
       envelope.style.setProperty('--lift', lift.toFixed(3));
       envelope.style.setProperty('--sealS', seal.toFixed(3));
+      hero.style.setProperty('--dim', (lift * 0.26).toFixed(3));   // bg darkens a touch as it opens
       if (scrollHint) scrollHint.style.opacity = (1 - clamp(p / 0.15, 0, 1)).toFixed(2);
       if (heroTop) heroTop.style.opacity = (1 - clamp((p - 0.3) / 0.3, 0, 1)).toFixed(2);
     }

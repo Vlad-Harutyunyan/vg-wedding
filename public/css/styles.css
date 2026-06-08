@@ -96,7 +96,8 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
   /* your photo sits behind the envelope; softened so names + card stay readable.
      swap assets/hero.svg for your real couple photo (same filename or edit url). */
   background:
-    radial-gradient(120% 80% at 50% 40%, rgba(247,241,232,.30), rgba(247,241,232,.62)),
+    linear-gradient(rgba(58,52,44, var(--dim,0)), rgba(58,52,44, var(--dim,0))),
+    radial-gradient(115% 90% at 50% 42%, rgba(247,241,232,.55), rgba(247,241,232,.88)),
     url(../assets/hero.svg) center center / cover no-repeat,
     var(--cream);
 }
@@ -127,8 +128,9 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
   position: absolute; left: 7%; right: 7%; bottom: 5%;
   height: 92%; background: var(--paper);
   border: 1px solid #e7dcc8; border-radius: 6px;
-  padding: 5% 7%; z-index: 2; overflow: hidden;
-  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  padding: 4% 6%; z-index: 2; overflow: hidden;
+  font-size: clamp(.6rem, 3vw, .92rem);   /* content scales to the envelope */
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .15em;
   box-shadow: 0 14px 30px -16px rgba(70,68,60,.35);
   transform: translateY(calc(var(--lift) * -84%));
   transition: transform .08s linear;
@@ -146,20 +148,14 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
 .d-num  { font-family: var(--serif); font-size: 1.5rem; color: var(--char); letter-spacing: .12em; }
 .d-place{ font-size: .72rem; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); }
 
-/* calendar-style date inside the envelope */
-.cal { margin-top: .7rem; display: grid; justify-items: center; gap: .35rem; }
-.cal-head { font-family: var(--serif); font-weight: 600; letter-spacing: .22em; text-transform: uppercase; font-size: .72rem; color: var(--terra); }
-.cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: .12rem .18rem; }
-.cal-grid > span {
-  font-family: var(--serif); font-size: .68rem; color: var(--char);
-  width: 1.7em; height: 1.7em; display: flex; align-items: center; justify-content: center;
-  font-variant-numeric: tabular-nums;
-}
-.cal-dow { font-size: .52rem !important; color: var(--taupe); text-transform: uppercase; letter-spacing: .03em; }
-.cal-wed { position: relative; }
-.cal-wed .cal-heart { position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); width: 1.85em; height: 1.85em; }
-.cal-wed b { position: relative; z-index: 1; color: #fff; font-weight: 700; }
-.cal-foot { font-family: var(--serif); font-style: italic; font-size: .74rem; color: var(--muted); margin-top: .15rem; }
+/* compact calendar-style date inside the envelope (always fits) */
+.cal { margin-top: .5em; display: grid; justify-items: center; gap: .3em; line-height: 1; }
+.cal-head { font-family: var(--serif); font-weight: 600; letter-spacing: .2em; text-transform: uppercase; font-size: .72em; color: var(--terra); }
+.cal-day { position: relative; display: grid; place-items: center; width: 2.6em; height: 2.6em; }
+.cal-day .cal-heart { position: absolute; inset: 0; width: 100%; height: 100%; filter: drop-shadow(0 3px 4px rgba(70,68,60,.25)); }
+.cal-day b { position: relative; z-index: 1; font-family: var(--serif); font-weight: 700; font-size: 1.5em; color: #fff; }
+.cal-dow { font-family: var(--serif); font-style: italic; font-size: .9em; color: var(--char); }
+.cal-foot { font-family: var(--serif); font-size: .62em; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin-top: .15em; }
 
 .env-front {
   position: absolute; inset: 0; z-index: 3; border-radius: 8px;
