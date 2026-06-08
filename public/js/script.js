@@ -266,7 +266,7 @@
       pt.style.left = (Math.random() * 100) + 'vw';
       pt.style.width = size + 'px'; pt.style.height = size + 'px';
       pt.style.background = colors[i % colors.length];
-      pt.style.opacity = (0.3 + Math.random() * 0.4).toFixed(2);
+      pt.style.opacity = (0.1 + Math.random() * 0.16).toFixed(2);
       pt.animate([
         { transform: 'translateY(-10vh) rotate(0deg)' },
         { transform: 'translateY(110vh) rotate(' + (360 + Math.random() * 360) + 'deg)' }
