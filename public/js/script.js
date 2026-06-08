@@ -216,7 +216,7 @@
       var r = pxImg.parentElement.getBoundingClientRect();
       if (r.bottom > 0 && r.top < window.innerHeight) {
         var center = r.top + r.height / 2 - window.innerHeight / 2;
-        pxImg.style.transform = 'translateY(' + (center * -0.42).toFixed(1) + 'px)';
+        pxImg.style.transform = 'translate3d(0,' + (center * -0.42).toFixed(1) + 'px,0)';
       }
     }
     // page-wide progress bar
@@ -253,9 +253,13 @@
   /* ===================== PETALS ===================== */
   var petalLayer = $('#petals');
   var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // fewer petals on phones / low-power devices to keep it smooth on older hardware
+  var smallScreen = window.innerWidth < 760;
+  var lowCores = navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 4;
+  var PETALS = (smallScreen || lowCores) ? 8 : 16;
   if (petalLayer && !reduceMotion) {
     var colors = ['#ECD9C6', '#C7A44A', '#B27C5B', '#A89B94'];
-    for (var i = 0; i < 18; i++) {
+    for (var i = 0; i < PETALS; i++) {
       var pt = document.createElement('span');
       pt.className = 'petal';
       var size = 8 + Math.random() * 12;

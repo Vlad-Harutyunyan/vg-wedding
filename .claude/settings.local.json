@@ -3,7 +3,9 @@
     "allow": [
       "WebSearch",
       "Bash(git push *)",
-      "Bash(gh run *)"
+      "Bash(gh run *)",
+      "Bash(git add *)",
+      "Bash(git commit -q -m 'Fix CI: remove bogus '\\\\''run: y'\\\\'' step that failed deploy \\(exit 127\\) *)"
     ]
   }
 }

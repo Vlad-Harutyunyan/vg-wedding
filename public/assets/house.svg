@@ -1,112 +1,71 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="800" height="640" viewBox="0 0 800 640" role="img" aria-label="Jasmin Wedding White House">
-  <style>
-    @keyframes sway     { 0%,100%{transform:rotate(-3deg)} 50%{transform:rotate(3deg)} }
-    @keyframes bloom    { 0%,100%{transform:scale(.82)} 50%{transform:scale(1.08)} }
-    @keyframes drift    { 0%{transform:translateX(-30px)} 100%{transform:translateX(860px)} }
-    @keyframes fly      { 0%{transform:translate(-40px,40px)} 100%{transform:translate(840px,-20px)} }
-    @keyframes rays     { 0%{transform:rotate(0)} 100%{transform:rotate(360deg)} }
-    @keyframes shimmer  { 0%,100%{opacity:.4} 50%{opacity:.85} }
-    .vine1 { transform-box:fill-box; transform-origin:bottom center; animation:sway 5s ease-in-out infinite }
-    .vine2 { transform-box:fill-box; transform-origin:bottom center; animation:sway 6.4s ease-in-out infinite reverse }
-    .jasmin{ transform-box:fill-box; transform-origin:center; animation:bloom 4s ease-in-out infinite }
-    .jasmin:nth-of-type(2n){ animation-duration:5.2s }
-    .jasmin:nth-of-type(3n){ animation-duration:6s }
-    .cloud { animation:drift 40s linear infinite }
-    .cloud2{ animation:drift 56s linear infinite; animation-delay:-20s }
-    .bird  { transform-box:fill-box; transform-origin:center; animation:fly 16s linear infinite }
-    .bird2 { animation:fly 21s linear infinite; animation-delay:-8s }
-    .sun-rays{ transform-box:fill-box; transform-origin:center; animation:rays 60s linear infinite }
-    @keyframes sunpulse { 0%,100%{transform:scale(1)} 50%{transform:scale(1.08)} }
-    .sun-core{ transform-box:fill-box; transform-origin:center; animation:sunpulse 5s ease-in-out infinite }
-    .glow  { animation:shimmer 4.5s ease-in-out infinite }
-    @keyframes wave { 0%,100%{transform:rotate(-9deg)} 50%{transform:rotate(9deg)} }
-    @keyframes peek { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-2px)} }
-    .bride     { transform-box:fill-box; transform-origin:bottom center; animation:peek 4s ease-in-out infinite }
-    .bride-arm { transform-box:fill-box; transform-origin:bottom center; animation:wave 2.2s ease-in-out infinite }
-  </style>
-
   <defs>
     <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#eadcc8"/>
-      <stop offset="1" stop-color="#fbf4ea"/>
+      <stop offset="0" stop-color="#eadcc8"/><stop offset="1" stop-color="#fbf4ea"/>
     </linearGradient>
     <linearGradient id="grass" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#bcb393"/>
-      <stop offset="1" stop-color="#a09873"/>
+      <stop offset="0" stop-color="#bcb393"/><stop offset="1" stop-color="#a09873"/>
     </linearGradient>
     <linearGradient id="wall" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#fffefb"/>
-      <stop offset="1" stop-color="#f3ead9"/>
+      <stop offset="0" stop-color="#fffefb"/><stop offset="1" stop-color="#f3ead9"/>
     </linearGradient>
     <radialGradient id="sunG" cx="50%" cy="50%" r="50%">
-      <stop offset="0" stop-color="#f5e3a8"/>
-      <stop offset="1" stop-color="#f5e3a8" stop-opacity="0"/>
+      <stop offset="0" stop-color="#f5e3a8"/><stop offset="1" stop-color="#f5e3a8" stop-opacity="0"/>
     </radialGradient>
     <linearGradient id="room" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#d8b878"/>
-      <stop offset="1" stop-color="#a07f50"/>
+      <stop offset="0" stop-color="#d8b878"/><stop offset="1" stop-color="#a07f50"/>
     </linearGradient>
   </defs>
   <rect width="800" height="640" fill="url(#sky)"/>
 
   <!-- sun -->
-  <g class="sun-rays">
-    <g stroke="#e9cf86" stroke-width="4" stroke-linecap="round">
-      <line x1="118" y1="40" x2="118" y2="62"/><line x1="118" y1="154" x2="118" y2="176"/>
-      <line x1="50" y1="108" x2="72" y2="108"/><line x1="164" y1="108" x2="186" y2="108"/>
-      <line x1="70" y1="60" x2="86" y2="76"/><line x1="150" y1="140" x2="166" y2="156"/>
-      <line x1="166" y1="60" x2="150" y2="76"/><line x1="86" y1="140" x2="70" y2="156"/>
-    </g>
+  <g stroke="#e9cf86" stroke-width="4" stroke-linecap="round">
+    <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0 118 108" to="360 118 108" dur="60s" repeatCount="indefinite"/>
+    <line x1="118" y1="40" x2="118" y2="62"/><line x1="118" y1="154" x2="118" y2="176"/>
+    <line x1="50" y1="108" x2="72" y2="108"/><line x1="164" y1="108" x2="186" y2="108"/>
+    <line x1="70" y1="60" x2="86" y2="76"/><line x1="150" y1="140" x2="166" y2="156"/>
+    <line x1="166" y1="60" x2="150" y2="76"/><line x1="86" y1="140" x2="70" y2="156"/>
   </g>
   <circle cx="118" cy="108" r="56" fill="url(#sunG)"/>
-  <circle class="sun-core" cx="118" cy="108" r="28" fill="#f0d77f"/>
+  <circle cx="118" cy="108" r="28" fill="#f0d77f">
+    <animate attributeName="r" values="28;30;28" dur="5s" repeatCount="indefinite"/>
+  </circle>
 
   <!-- clouds -->
   <g fill="#fffdf8" opacity=".85">
-    <g class="cloud"><ellipse cx="640" cy="110" rx="46" ry="20"/><ellipse cx="672" cy="100" rx="34" ry="18"/><ellipse cx="610" cy="102" rx="28" ry="15"/></g>
-    <g class="cloud2"><ellipse cx="540" cy="70" rx="38" ry="16"/><ellipse cx="570" cy="64" rx="26" ry="13"/></g>
+    <g><animateTransform attributeName="transform" type="translate" from="-30 0" to="860 0" dur="40s" repeatCount="indefinite"/>
+      <ellipse cx="640" cy="110" rx="46" ry="20"/><ellipse cx="672" cy="100" rx="34" ry="18"/><ellipse cx="610" cy="102" rx="28" ry="15"/></g>
+    <g><animateTransform attributeName="transform" type="translate" from="-30 0" to="860 0" dur="56s" begin="-20s" repeatCount="indefinite"/>
+      <ellipse cx="540" cy="70" rx="38" ry="16"/><ellipse cx="570" cy="64" rx="26" ry="13"/></g>
   </g>
 
   <!-- birds -->
   <g stroke="#6b6353" stroke-width="3" fill="none" stroke-linecap="round">
-    <path class="bird"  d="M0 0 q8 -9 16 0 q8 -9 16 0" transform="translate(0,20)"/>
-    <path class="bird2" d="M0 0 q6 -7 12 0 q6 -7 12 0" transform="translate(0,50)"/>
+    <path d="M0 0 q8 -9 16 0 q8 -9 16 0"><animateTransform attributeName="transform" type="translate" from="-40 40" to="840 -20" dur="16s" repeatCount="indefinite"/></path>
+    <path d="M0 0 q6 -7 12 0 q6 -7 12 0"><animateTransform attributeName="transform" type="translate" from="-40 70" to="840 10" dur="21s" begin="-8s" repeatCount="indefinite"/></path>
   </g>
 
   <!-- ground -->
   <rect x="0" y="500" width="800" height="140" fill="url(#grass)"/>
   <ellipse cx="400" cy="560" rx="370" ry="38" fill="#000" opacity=".05"/>
-  <!-- path -->
   <polygon points="372,560 428,560 470,520 330,520" fill="#e7dac4" opacity=".7"/>
 
   <!-- ===== white mansion ===== -->
   <g>
-    <!-- side wings -->
     <rect x="178" y="320" width="120" height="180" fill="url(#wall)" stroke="#e7ddcb" stroke-width="2"/>
     <rect x="502" y="320" width="120" height="180" fill="url(#wall)" stroke="#e7ddcb" stroke-width="2"/>
-    <!-- wing roofs (hipped) -->
     <polygon points="170,322 238,288 306,322" fill="#e4d4bb" stroke="#d6c5a9" stroke-width="2"/>
     <polygon points="494,322 562,288 630,322" fill="#e4d4bb" stroke="#d6c5a9" stroke-width="2"/>
-
-    <!-- central block (taller, 2 storey) -->
     <rect x="290" y="252" width="220" height="248" fill="url(#wall)" stroke="#e7ddcb" stroke-width="2"/>
-
-    <!-- portico pediment -->
     <polygon points="276,256 400,182 524,256" fill="#f1e6d3" stroke="#e0d2b8" stroke-width="2"/>
     <polygon points="306,252 400,196 494,252" fill="none" stroke="#d9cab0" stroke-width="1.5"/>
     <circle cx="400" cy="232" r="11" fill="#ecd9c6" stroke="#d9cab0" stroke-width="1.5"/>
     <rect x="284" y="252" width="232" height="14" fill="#f1e6d3" stroke="#e0d2b8" stroke-width="1.5"/>
-
-    <!-- portico columns -->
     <g fill="#fbf3e6" stroke="#e7ddcb" stroke-width="1.5">
-      <rect x="312" y="300" width="16" height="200" rx="3"/>
-      <rect x="356" y="300" width="16" height="200" rx="3"/>
-      <rect x="428" y="300" width="16" height="200" rx="3"/>
-      <rect x="472" y="300" width="16" height="200" rx="3"/>
+      <rect x="312" y="300" width="16" height="200" rx="3"/><rect x="356" y="300" width="16" height="200" rx="3"/>
+      <rect x="428" y="300" width="16" height="200" rx="3"/><rect x="472" y="300" width="16" height="200" rx="3"/>
     </g>
     <rect x="300" y="290" width="200" height="12" fill="#f1e6d3" stroke="#e0d2b8" stroke-width="1.5"/>
-
-    <!-- balcony balustrade above portico -->
     <g fill="#f6efe1" stroke="#e0d2b8" stroke-width="1.5">
       <rect x="300" y="276" width="200" height="6"/>
       <rect x="306" y="266" width="6" height="12"/><rect x="324" y="266" width="6" height="12"/>
@@ -114,73 +73,60 @@
       <rect x="434" y="266" width="6" height="12"/><rect x="452" y="266" width="6" height="12"/>
       <rect x="470" y="266" width="6" height="12"/><rect x="488" y="266" width="6" height="12"/>
     </g>
-
-    <!-- arched door -->
     <path d="M374 500 V404 a26 26 0 0 1 52 0 V500Z" fill="#cdb88f" stroke="#b9a06f" stroke-width="2"/>
     <line x1="400" y1="378" x2="400" y2="500" stroke="#b9a06f" stroke-width="1.5"/>
     <rect x="358" y="500" width="84" height="8" fill="#efe4d2"/>
     <rect x="346" y="508" width="108" height="9" fill="#e7dac4"/>
-
-    <!-- windows: wings, glowing -->
-    <g class="glow" fill="#f6e7bf" stroke="#d9cab0" stroke-width="1.5">
-      <rect x="206" y="356" width="30" height="50" rx="15"/>
-      <rect x="244" y="356" width="30" height="50" rx="15"/>
-      <rect x="526" y="356" width="30" height="50" rx="15"/>
-      <rect x="564" y="356" width="30" height="50" rx="15"/>
-      <rect x="206" y="426" width="30" height="50" rx="15"/>
-      <rect x="244" y="426" width="30" height="50" rx="15"/>
-      <rect x="526" y="426" width="30" height="50" rx="15"/>
-      <rect x="564" y="426" width="30" height="50" rx="15"/>
+    <g fill="#f6e7bf" stroke="#d9cab0" stroke-width="1.5">
+      <animate attributeName="opacity" values=".45;.85;.45" dur="4.5s" repeatCount="indefinite"/>
+      <rect x="206" y="356" width="30" height="50" rx="15"/><rect x="244" y="356" width="30" height="50" rx="15"/>
+      <rect x="526" y="356" width="30" height="50" rx="15"/><rect x="564" y="356" width="30" height="50" rx="15"/>
+      <rect x="206" y="426" width="30" height="50" rx="15"/><rect x="244" y="426" width="30" height="50" rx="15"/>
+      <rect x="526" y="426" width="30" height="50" rx="15"/><rect x="564" y="426" width="30" height="50" rx="15"/>
     </g>
   </g>
 
-  <!-- bride leaning out of the open, lit window, waving for the groom -->
+  <!-- bride leaning out of the open, lit window, waving -->
   <g>
-    <!-- warm lit room behind her -->
     <rect x="368" y="296" width="64" height="60" rx="3" fill="url(#room)"/>
-    <!-- open shutters -->
     <g fill="#eadfca" stroke="#cdbb9f" stroke-width="1.5">
-      <rect x="350" y="294" width="13" height="64" rx="2"/>
-      <rect x="437" y="294" width="13" height="64" rx="2"/>
+      <rect x="350" y="294" width="13" height="64" rx="2"/><rect x="437" y="294" width="13" height="64" rx="2"/>
     </g>
     <g stroke="#cdbb9f" stroke-width="1" opacity=".7">
       <line x1="352" y1="306" x2="361" y2="306"/><line x1="352" y1="318" x2="361" y2="318"/><line x1="352" y1="330" x2="361" y2="330"/><line x1="352" y1="342" x2="361" y2="342"/>
       <line x1="439" y1="306" x2="448" y2="306"/><line x1="439" y1="318" x2="448" y2="318"/><line x1="439" y1="330" x2="448" y2="330"/><line x1="439" y1="342" x2="448" y2="342"/>
     </g>
-    <g class="bride">
-      <!-- veil flowing -->
+    <g>
+      <animateTransform attributeName="transform" type="translate" values="0 0;0 -2;0 0" dur="4s" calcMode="spline" keyTimes="0;0.5;1" keySplines="0.4 0 0.6 1;0.4 0 0.6 1" repeatCount="indefinite"/>
       <path d="M390 314 q10 -12 20 0 l4 40 q-14 6 -28 0 Z" fill="#fffdf8" opacity=".9"/>
-      <!-- dress -->
       <path d="M400 332 L383 358 L417 358 Z" fill="#fffefb"/>
       <rect x="393" y="326" width="14" height="12" rx="6" fill="#fffefb"/>
-      <!-- resting arm along the dress -->
       <rect x="388" y="332" width="5" height="20" rx="2.5" fill="#f0d3b8" transform="rotate(9 390.5 333)"/>
-      <!-- head -->
       <circle cx="400" cy="318" r="7.5" fill="#f0d3b8"/>
       <path d="M393.5 317 Q400 311.5 406.5 317 Q400 315.4 393.5 317 Z" fill="#6b4a2e"/>
-      <!-- crown / hairpiece -->
       <circle cx="400" cy="308" r="2" fill="#e9cf86"/>
-      <!-- raised waving arm (pivots at shoulder = bottom of its box) -->
-      <g class="bride-arm">
+      <g>
+        <animateTransform attributeName="transform" type="rotate" values="-9 408.5 334;9 408.5 334;-9 408.5 334" dur="2.2s" calcMode="spline" keyTimes="0;0.5;1" keySplines="0.4 0 0.6 1;0.4 0 0.6 1" repeatCount="indefinite"/>
         <rect x="406" y="314" width="5" height="20" rx="2.5" fill="#f0d3b8"/>
         <circle cx="408.5" cy="312" r="3.4" fill="#f0d3b8"/>
       </g>
     </g>
-    <!-- window frame (perimeter only) + sill, drawn over her lower edge -->
     <rect x="362" y="290" width="76" height="68" rx="5" fill="none" stroke="#f6efe1" stroke-width="6"/>
     <rect x="362" y="290" width="76" height="68" rx="5" fill="none" stroke="#cdbb9f" stroke-width="2"/>
     <rect x="356" y="352" width="88" height="10" rx="2" fill="#efe4d2" stroke="#d9cab0" stroke-width="1.5"/>
   </g>
 
-  <!-- jasmine on wing corners -->
-  <g class="vine1">
+  <!-- jasmine on wing corners (gentle sway) -->
+  <g>
+    <animateTransform attributeName="transform" type="rotate" values="-3 186 500;3 186 500;-3 186 500" dur="5s" calcMode="spline" keyTimes="0;0.5;1" keySplines="0.4 0 0.6 1;0.4 0 0.6 1" repeatCount="indefinite"/>
     <path d="M186 500 C170 450 200 410 184 360 C172 330 196 326 186 320" fill="none" stroke="#8a9c6e" stroke-width="3"/>
-    <g fill="#fffdf8" stroke="#e6dcc8"><circle class="jasmin" cx="182" cy="470" r="7"/><circle class="jasmin" cx="194" cy="430" r="6"/><circle class="jasmin" cx="180" cy="392" r="7"/><circle class="jasmin" cx="190" cy="352" r="6"/></g>
+    <g fill="#fffdf8" stroke="#e6dcc8"><circle cx="182" cy="470" r="7"/><circle cx="194" cy="430" r="6"/><circle cx="180" cy="392" r="7"/><circle cx="190" cy="352" r="6"/></g>
     <g fill="#e9cf86"><circle cx="182" cy="470" r="2"/><circle cx="194" cy="430" r="2"/><circle cx="180" cy="392" r="2"/><circle cx="190" cy="352" r="2"/></g>
   </g>
-  <g class="vine2">
+  <g>
+    <animateTransform attributeName="transform" type="rotate" values="3 614 500;-3 614 500;3 614 500" dur="6.4s" calcMode="spline" keyTimes="0;0.5;1" keySplines="0.4 0 0.6 1;0.4 0 0.6 1" repeatCount="indefinite"/>
     <path d="M614 500 C630 450 600 410 616 360 C628 330 604 326 614 320" fill="none" stroke="#8a9c6e" stroke-width="3"/>
-    <g fill="#fffdf8" stroke="#e6dcc8"><circle class="jasmin" cx="618" cy="468" r="7"/><circle class="jasmin" cx="606" cy="428" r="6"/><circle class="jasmin" cx="620" cy="390" r="7"/><circle class="jasmin" cx="610" cy="350" r="6"/></g>
+    <g fill="#fffdf8" stroke="#e6dcc8"><circle cx="618" cy="468" r="7"/><circle cx="606" cy="428" r="6"/><circle cx="620" cy="390" r="7"/><circle cx="610" cy="350" r="6"/></g>
     <g fill="#e9cf86"><circle cx="618" cy="468" r="2"/><circle cx="606" cy="428" r="2"/><circle cx="620" cy="390" r="2"/><circle cx="610" cy="350" r="2"/></g>
   </g>
 
@@ -188,8 +134,14 @@
   <g>
     <ellipse cx="150" cy="500" rx="44" ry="28" fill="#9aa179"/>
     <ellipse cx="650" cy="500" rx="44" ry="28" fill="#9aa179"/>
-    <g class="vine1"><circle class="jasmin" cx="138" cy="488" r="6" fill="#fffdf8"/><circle class="jasmin" cx="162" cy="494" r="6" fill="#fffdf8"/><circle class="jasmin" cx="150" cy="480" r="6" fill="#fffdf8"/></g>
-    <g class="vine2"><circle class="jasmin" cx="638" cy="488" r="6" fill="#fffdf8"/><circle class="jasmin" cx="662" cy="494" r="6" fill="#fffdf8"/><circle class="jasmin" cx="650" cy="480" r="6" fill="#fffdf8"/></g>
+    <g fill="#fffdf8">
+      <animateTransform attributeName="transform" type="rotate" values="-2 150 500;2 150 500;-2 150 500" dur="5.4s" calcMode="spline" keyTimes="0;0.5;1" keySplines="0.4 0 0.6 1;0.4 0 0.6 1" repeatCount="indefinite"/>
+      <circle cx="138" cy="488" r="6"/><circle cx="162" cy="494" r="6"/><circle cx="150" cy="480" r="6"/>
+    </g>
+    <g fill="#fffdf8">
+      <animateTransform attributeName="transform" type="rotate" values="2 650 500;-2 650 500;2 650 500" dur="6s" calcMode="spline" keyTimes="0;0.5;1" keySplines="0.4 0 0.6 1;0.4 0 0.6 1" repeatCount="indefinite"/>
+      <circle cx="638" cy="488" r="6"/><circle cx="662" cy="494" r="6"/><circle cx="650" cy="480" r="6"/>
+    </g>
   </g>
 
   <text x="400" y="604" text-anchor="middle" font-family="Georgia, serif" font-size="21" letter-spacing="4" fill="#5f5747">JASMIN&#160;&#160;WHITE&#160;&#160;HOUSE</text>
