@@ -108,10 +108,11 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
 }
 .hdt-names {
   font-family: var(--signature); font-size: clamp(2.6rem, 11vw, 6rem); color: var(--char);
-  display: flex; flex-direction: column; align-items: center; line-height: .82; padding: 0 .3em;
+  display: flex; flex-direction: column; align-items: flex-start; line-height: .82;
 }
 .hdt-names .nm { display: block; }
-.amp { font-size: .3em; font-style: italic; color: var(--char); opacity: .45; margin: -.1em 0; }
+.hdt-names .nm:nth-of-type(2) { margin-left: 1.7em; }   /* Galina stepped right */
+.amp { font-size: .32em; font-style: italic; color: var(--char); opacity: .45; margin-left: 2.6em; }
 .hdt-tag { font-family: var(--serif); font-style: italic; font-size: clamp(.85rem, 2.6vw, 1.15rem); letter-spacing: .04em; color: var(--terra); }
 .hdt-date  { font-family: var(--serif); letter-spacing: .3em; text-transform: uppercase; font-size: .8rem; color: var(--terra); }
 
