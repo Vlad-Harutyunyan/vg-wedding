@@ -12,7 +12,7 @@
   /* ===================== I18N ===================== */
   var I18N = {
     en: {
-      'names':'Vlad <span class="amp">&amp;</span> Galina',
+      'names':'<span class="nm">Vlad</span><span class="amp">&amp;</span><span class="nm">Galina</span>',
       'hero.topdate':'4 July 2026 — Yerevan',
       'hero.tagtop':'together with their families','hero.tag':'are getting married',
       'letter.eyebrow':'together with their families',
@@ -59,7 +59,7 @@
       'status.no':"Thank you for letting us know, {name}. You'll be missed."
     },
     ru: {
-      'names':'Vlad <span class="amp">&amp;</span> Galina',
+      'names':'<span class="nm">Vlad</span><span class="amp">&amp;</span><span class="nm">Galina</span>',
       'hero.topdate':'4 июля 2026 — Ереван',
       'hero.tagtop':'вместе со своими семьями','hero.tag':'женятся',
       'letter.eyebrow':'вместе со своими семьями',
@@ -106,7 +106,7 @@
       'status.no':'Спасибо, что сообщили, {name}. Нам будет вас не хватать.'
     },
     hy: {
-      'names':'Vlad <span class="amp">&amp;</span> Galina',
+      'names':'<span class="nm">Vlad</span><span class="amp">&amp;</span><span class="nm">Galina</span>',
       'hero.topdate':'4 հուլիսի 2026 — Երևան',
       'hero.tagtop':'ընտանիքների հետ միասին','hero.tag':'ամուսնանում են',
       'letter.eyebrow':'ընտանիքների հետ միասին',
