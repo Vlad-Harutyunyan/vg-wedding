@@ -1,0 +1,148 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="640" viewBox="0 0 800 640" role="img" aria-label="Prime Hall dance floor">
+  <style>
+    @keyframes spin    { 0%{transform:rotate(0)} 100%{transform:rotate(360deg)} }
+    @keyframes beampulse{ 0%,100%{opacity:.18} 50%{opacity:.55} }
+    @keyframes tile    { 0%{fill:#c7a44a} 25%{fill:#b27c5b} 50%{fill:#8a6fa0} 75%{fill:#5a93a0} 100%{fill:#c7a44a} }
+    @keyframes bounce  { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-14px)} }
+    @keyframes bounce2 { 0%,100%{transform:translateY(-12px)} 50%{transform:translateY(2px)} }
+    @keyframes armsway { 0%,100%{transform:rotate(-16deg)} 50%{transform:rotate(16deg)} }
+    @keyframes glint   { 0%,100%{opacity:.4} 50%{opacity:1} }
+    @keyframes sweep   { 0%{transform:rotate(-26deg)} 100%{transform:rotate(26deg)} }
+    .ballrays { transform-box:fill-box; transform-origin:center; animation:spin 14s linear infinite }
+    .ball     { transform-box:fill-box; transform-origin:center; animation:spin 6s linear infinite }
+    .beamL { transform-box:fill-box; transform-origin:top center; animation:sweep 3.2s ease-in-out infinite alternate }
+    .beamR { transform-box:fill-box; transform-origin:top center; animation:sweep 3.2s ease-in-out infinite alternate-reverse }
+    .beam  { animation:beampulse 2.4s ease-in-out infinite }
+    .tile  { animation:tile 3.6s linear infinite }
+    .tile:nth-of-type(2n){ animation-delay:-.6s } .tile:nth-of-type(3n){ animation-delay:-1.2s }
+    .tile:nth-of-type(4n){ animation-delay:-1.8s } .tile:nth-of-type(5n){ animation-delay:-2.4s }
+    .dancer  { transform-box:fill-box; transform-origin:bottom center; animation:bounce .62s ease-in-out infinite }
+    .dancer.alt{ animation:bounce2 .62s ease-in-out infinite }
+    .arm   { transform-box:fill-box; transform-origin:bottom center; animation:armsway .62s ease-in-out infinite }
+    .armR  { animation:armsway .62s ease-in-out infinite reverse }
+    .glint { animation:glint 1.8s ease-in-out infinite }
+    .glint:nth-of-type(2n){ animation-delay:.5s } .glint:nth-of-type(3n){ animation-delay:1s }
+  </style>
+
+  <defs>
+    <linearGradient id="wall" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#241f30"/>
+      <stop offset="1" stop-color="#181522"/>
+    </linearGradient>
+    <radialGradient id="haze" cx="50%" cy="28%" r="60%">
+      <stop offset="0" stop-color="#6a5a86" stop-opacity=".6"/>
+      <stop offset="1" stop-color="#6a5a86" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="800" height="640" fill="url(#wall)"/>
+  <ellipse cx="400" cy="180" rx="360" ry="220" fill="url(#haze)"/>
+
+  <!-- spotlight beams from ceiling corners -->
+  <g class="beam"><g class="beamL"><polygon points="120,0 60,470 320,470" fill="#c7a44a" opacity=".5"/></g></g>
+  <g class="beam"><g class="beamR"><polygon points="680,0 480,470 740,470" fill="#8a6fa0" opacity=".5"/></g></g>
+  <g class="beam"><g class="beamL" style="animation-duration:4.4s"><polygon points="300,0 250,460 470,460" fill="#5a93a0" opacity=".4"/></g></g>
+
+  <!-- disco ball -->
+  <line x1="400" y1="40" x2="400" y2="92" stroke="#6b6453" stroke-width="3"/>
+  <g class="ballrays">
+    <g stroke="#f6e6b8" stroke-width="3" stroke-linecap="round" opacity=".5">
+      <line x1="400" y1="60" x2="400" y2="0"/><line x1="400" y1="180" x2="400" y2="240"/>
+      <line x1="340" y1="120" x2="280" y2="120"/><line x1="460" y1="120" x2="520" y2="120"/>
+      <line x1="357" y1="77" x2="315" y2="35"/><line x1="443" y1="163" x2="485" y2="205"/>
+      <line x1="443" y1="77" x2="485" y2="35"/><line x1="357" y1="163" x2="315" y2="205"/>
+    </g>
+  </g>
+  <g class="ball">
+    <circle cx="400" cy="120" r="30" fill="#9fb6c9"/>
+    <g stroke="#5d6b7a" stroke-width="1.2" opacity=".8">
+      <line x1="370" y1="110" x2="430" y2="110"/><line x1="372" y1="120" x2="428" y2="120"/><line x1="370" y1="130" x2="430" y2="130"/>
+      <line x1="385" y1="92" x2="385" y2="148"/><line x1="400" y1="90" x2="400" y2="150"/><line x1="415" y1="92" x2="415" y2="148"/>
+    </g>
+    <rect class="glint" x="386" y="106" width="8" height="8" fill="#fffdf8"/>
+    <rect class="glint" x="408" y="124" width="6" height="6" fill="#fffdf8"/>
+    <rect class="glint" x="396" y="132" width="5" height="5" fill="#fffdf8"/>
+  </g>
+
+  <!-- PRIME HALL neon sign -->
+  <text x="400" y="300" text-anchor="middle" font-family="Georgia, serif" font-size="26" letter-spacing="8" fill="#f6dd9c" opacity=".9" style="animation:glint 2.6s ease-in-out infinite">PRIME&#160;HALL</text>
+
+  <!-- ===== glowing dance floor (perspective grid) ===== -->
+  <g>
+    <polygon points="150,640 650,640 540,432 260,432" fill="#0e0c16"/>
+    <!-- back row -->
+    <polygon class="tile" points="260,432 305,432 298,470 248,470"/>
+    <polygon class="tile" points="320,432 365,432 362,470 312,470"/>
+    <polygon class="tile" points="380,432 420,432 422,470 378,470"/>
+    <polygon class="tile" points="435,432 480,432 488,470 438,470"/>
+    <polygon class="tile" points="495,432 540,432 552,470 502,470"/>
+    <!-- middle row -->
+    <polygon class="tile" points="245,474 297,474 288,524 230,524"/>
+    <polygon class="tile" points="312,474 362,474 360,524 296,524"/>
+    <polygon class="tile" points="378,474 422,474 424,524 366,524"/>
+    <polygon class="tile" points="438,474 490,474 500,524 432,524"/>
+    <polygon class="tile" points="505,474 558,474 570,524 506,524"/>
+    <!-- front row -->
+    <polygon class="tile" points="226,528 286,528 274,592 204,592"/>
+    <polygon class="tile" points="300,528 358,528 356,592 286,592"/>
+    <polygon class="tile" points="366,528 424,528 426,592 360,592"/>
+    <polygon class="tile" points="434,528 496,528 508,592 430,592"/>
+    <polygon class="tile" points="510,528 572,528 588,592 516,592"/>
+  </g>
+
+  <!-- ===== dancers (colourful, human, on the floor) ===== -->
+  <g>
+    <!-- back-left guest (blue shirt) -->
+    <g transform="translate(322,452) scale(.72)"><g class="dancer">
+      <rect x="-7" y="0" width="6" height="18" rx="2" fill="#34405a" transform="rotate(9 -4 2)"/><rect x="1" y="0" width="6" height="18" rx="2" fill="#34405a" transform="rotate(-9 4 2)"/>
+      <path d="M-9 -34 q9 7 18 0 L9 2 L-9 2 Z" fill="#4f7fb0"/>
+      <g class="arm"><rect x="-12" y="-46" width="5" height="24" rx="2.5" fill="#e8c4a0" transform="rotate(30 -9 -22)"/></g>
+      <g class="armR"><rect x="7" y="-46" width="5" height="24" rx="2.5" fill="#e8c4a0" transform="rotate(-30 9 -22)"/></g>
+      <circle cx="0" cy="-46" r="8" fill="#eecaa6"/><path d="M-8 -47.4 Q0 -54.2 8 -47.4 Q0 -48.6 -8 -47.4 Z" fill="#2e2014"/>
+    </g></g>
+    <!-- back-right guest (teal dress) -->
+    <g transform="translate(486,452) scale(.72)"><g class="dancer alt">
+      <rect x="-6" y="0" width="6" height="16" rx="2" fill="#dfb9a0"/><rect x="1" y="0" width="6" height="16" rx="2" fill="#dfb9a0"/>
+      <path d="M-9 -34 q9 7 18 0 L15 2 L-15 2 Z" fill="#4fa090"/>
+      <g class="arm"><rect x="-12" y="-46" width="5" height="24" rx="2.5" fill="#e8c4a0" transform="rotate(34 -9 -22)"/></g>
+      <g class="armR"><rect x="7" y="-46" width="5" height="24" rx="2.5" fill="#e8c4a0" transform="rotate(-34 9 -22)"/></g>
+      <circle cx="0" cy="-46" r="8" fill="#eecaa6"/><path d="M-9 -47 q9 -9 18 0 l-2 10 q-7 -5 -14 0 Z" fill="#5a3a22"/>
+    </g></g>
+    <!-- mid-left (gold) -->
+    <g transform="translate(286,500) scale(.92)"><g class="dancer alt">
+      <rect x="-7" y="0" width="6" height="20" rx="2" fill="#3a2f24" transform="rotate(11 -4 2)"/><rect x="1" y="0" width="6" height="20" rx="2" fill="#3a2f24" transform="rotate(-11 4 2)"/>
+      <path d="M-9 -36 q9 7 18 0 L9 2 L-9 2 Z" fill="#c7a44a"/>
+      <g class="arm"><rect x="-13" y="-48" width="6" height="26" rx="3" fill="#e8c4a0" transform="rotate(26 -10 -24)"/></g>
+      <g class="armR"><rect x="7" y="-48" width="6" height="26" rx="3" fill="#e8c4a0" transform="rotate(-46 10 -24)"/></g>
+      <circle cx="0" cy="-48" r="9" fill="#eecaa6"/><path d="M-9 -49.6 Q0 -57.2 9 -49.6 Q0 -50.9 -9 -49.6 Z" fill="#c9a96a"/>
+    </g></g>
+    <!-- mid-right (purple) -->
+    <g transform="translate(516,502) scale(.92)"><g class="dancer">
+      <rect x="-7" y="0" width="6" height="20" rx="2" fill="#2f2838" transform="rotate(-11 -4 2)"/><rect x="1" y="0" width="6" height="20" rx="2" fill="#2f2838" transform="rotate(11 4 2)"/>
+      <path d="M-9 -36 q9 7 18 0 L9 2 L-9 2 Z" fill="#8a6fa0"/>
+      <g class="arm"><rect x="-13" y="-48" width="6" height="26" rx="3" fill="#e8c4a0" transform="rotate(46 -10 -24)"/></g>
+      <g class="armR"><rect x="7" y="-48" width="6" height="26" rx="3" fill="#e8c4a0" transform="rotate(-26 10 -24)"/></g>
+      <circle cx="0" cy="-48" r="9" fill="#eecaa6"/><path d="M-9 -49.6 Q0 -57.2 9 -49.6 Q0 -50.9 -9 -49.6 Z" fill="#2e2014"/>
+    </g></g>
+    <!-- front: the groom (dark suit) -->
+    <g transform="translate(372,588) scale(1.16)"><g class="dancer">
+      <rect x="-7" y="0" width="7" height="22" rx="2.5" fill="#26242e" transform="rotate(12 -4 2)"/><rect x="2" y="0" width="7" height="22" rx="2.5" fill="#26242e" transform="rotate(-12 5 2)"/>
+      <path d="M-10 -40 q10 8 20 0 L10 2 L-10 2 Z" fill="#3a3744"/>
+      <path d="M-2 -38 L2 -38 L1 0 L-1 0 Z" fill="#e6dcc8"/>
+      <g class="arm"><rect x="-14" y="-52" width="7" height="30" rx="3.5" fill="#eecaa6" transform="rotate(22 -11 -26)"/></g>
+      <g class="armR"><rect x="8" y="-52" width="7" height="30" rx="3.5" fill="#eecaa6" transform="rotate(-48 11 -26)"/></g>
+      <circle cx="0" cy="-54" r="10" fill="#eecaa6"/><path d="M-10 -55.8 Q0 -64.2 10 -55.8 Q0 -57.2 -10 -55.8 Z" fill="#2e2014"/>
+    </g></g>
+    <!-- front: the bride (white dress) -->
+    <g transform="translate(452,592) scale(1.18)"><g class="dancer alt">
+      <path d="M-9 -42 q9 8 18 0 L17 2 L-17 2 Z" fill="#fffefb"/>
+      <path d="M-2 -42 L2 -42 L1 -20 L-1 -20 Z" fill="#f0e2cf"/>
+      <g class="arm"><rect x="-14" y="-54" width="7" height="30" rx="3.5" fill="#eecaa6" transform="rotate(48 -11 -27)"/></g>
+      <g class="armR"><rect x="8" y="-54" width="7" height="30" rx="3.5" fill="#eecaa6" transform="rotate(-22 11 -27)"/></g>
+      <circle cx="0" cy="-56" r="10" fill="#eecaa6"/>
+      <path d="M-10 -58 q10 -10 20 0 l-3 16 q-7 -5 -14 0 Z" fill="#5a3a22"/>
+      <!-- little veil -->
+      <path d="M9 -58 q12 4 8 30" fill="none" stroke="#fffefb" stroke-width="3" opacity=".8"/>
+    </g></g>
+  </g>
+</svg>
