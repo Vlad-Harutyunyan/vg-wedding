@@ -11,7 +11,7 @@
   --muted:   #7c7568;
 
   --serif:  'Cormorant Garamond', Georgia, serif;
-  --script: 'Great Vibes', cursive;
+  --script: 'Caveat', 'Great Vibes', cursive;
   --sans:   'Jost', system-ui, sans-serif;
 
   --maxw: 1100px;
@@ -54,10 +54,10 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
   text-transform: uppercase; color: var(--terra); margin-bottom: .6rem;
 }
 .script {
-  font-family: var(--script); font-weight: 400; color: var(--char);
+  font-family: var(--script); font-weight: 600; color: var(--char);
   font-size: clamp(2.6rem, 7vw, 4.6rem); line-height: 1; margin-bottom: 1.6rem;
 }
-.script-accent { font-family: var(--script); font-size: 2rem; color: var(--terra); }
+.script-accent { font-family: var(--script); font-weight: 600; font-size: 2.2rem; color: var(--terra); }
 .lead { font-family: var(--serif); font-size: 1.4rem; color: var(--muted); }
 
 .section {
@@ -484,16 +484,16 @@ html[lang="hy"] .field input, html[lang="hy"] .field select, html[lang="hy"] .fi
 html[lang="ru"] .field input, html[lang="ru"] .field select, html[lang="ru"] .field textarea {
   font-family: 'Noto Serif Armenian', var(--serif);
 }
-html[lang="hy"] .script, html[lang="ru"] .script {
+html[lang="hy"] .script {
   font-family: 'Noto Serif Armenian', var(--serif); font-weight: 600;
   font-size: clamp(1.9rem, 5.4vw, 3.2rem); line-height: 1.14; letter-spacing: .01em;
 }
-html[lang="hy"] .script-accent, html[lang="ru"] .script-accent {
+html[lang="hy"] .script-accent {
   font-family: 'Noto Serif Armenian', var(--serif); font-weight: 600; font-size: 1.5rem;
 }
-html[lang="hy"] .hdt-names, html[lang="ru"] .hdt-names,
-html[lang="hy"] .letter-names, html[lang="ru"] .letter-names,
-html[lang="hy"] .footer-names, html[lang="ru"] .footer-names {
+html[lang="hy"] .hdt-names,
+html[lang="hy"] .letter-names,
+html[lang="hy"] .footer-names {
   font-family: 'Noto Serif Armenian', var(--serif); font-weight: 600;
 }
 html[lang="hy"] .letter-names span, html[lang="ru"] .letter-names span { color: var(--gold); }
