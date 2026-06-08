@@ -396,7 +396,7 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
   box-shadow: 0 0 0 4px var(--cream), 0 0 0 5px var(--gold);
 }
 .venue-info { display: grid; gap: .55rem; max-width: 520px; }
-.venue-info .script { font-family: var(--signature); margin-bottom: .3rem; }
+.venue-info .script { font-family: var(--signature); margin-bottom: .3rem; overflow-wrap: break-word; }
 /* the time is the headline of each event — make it stand out */
 .venue .eyebrow {
   font-family: var(--serif); font-size: clamp(1.1rem, 3vw, 1.5rem); font-weight: 600;
@@ -416,11 +416,20 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
 
 .venue .frame { transform: rotate(-2deg); }
 .venue.venue-right .frame { transform: rotate(2deg); }
+/* keep every event photo-first (image then text) on all screens */
+.venue.venue-right .photo-frame { order: -1; }
+
+/* phones: center each event's content (photo is already centered) */
+@media (max-width: 819px) {
+  .venue { justify-items: center; text-align: center; }
+  .venue-info { justify-items: center; margin: 0 auto; }
+  .venue-meta { justify-items: center; text-align: left; }
+  .venue .btn-map { justify-self: center; }
+}
 
 @media (min-width: 820px) {
   .photo-intro { grid-template-columns: 1fr 1fr; align-items: center; text-align: left; }
   .venue { grid-template-columns: 1fr 1fr; }
-  .venue.venue-right .venue-info { order: 2; justify-self: start; }
 }
 
 /* swatches */
@@ -442,7 +451,7 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
 .no-js .carousel-track { animation: moments 44s linear infinite; }
 @keyframes moments { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 .slide {
-  flex: 0 0 auto; width: clamp(300px, 46vw, 520px); aspect-ratio: 4 / 3;
+  flex: 0 0 auto; width: clamp(390px, 60vw, 676px); aspect-ratio: 4 / 3;
   overflow: hidden; border-radius: 8px; cursor: zoom-in; background: var(--paper);
   box-shadow: 0 1px 0 #fff inset, 0 0 0 1px #e0cfa8, 0 18px 36px -22px rgba(70,68,60,.5);
   transition: transform .4s var(--ease);
