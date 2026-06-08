@@ -12,7 +12,7 @@
   /* ===================== I18N ===================== */
   var I18N = {
     en: {
-      'names':'Vlad & Galina',
+      'names':'Vlad <span class="amp">&amp;</span> Galina',
       'hero.topdate':'4 July 2026 — Yerevan',
       'letter.eyebrow':'together with their families',
       'letter.names':'Vlad <span>&amp;</span> Galina',
@@ -58,7 +58,7 @@
       'status.no':"Thank you for letting us know, {name}. You'll be missed."
     },
     ru: {
-      'names':'Vlad & Galina',
+      'names':'Vlad <span class="amp">&amp;</span> Galina',
       'hero.topdate':'4 июля 2026 — Ереван',
       'letter.eyebrow':'вместе со своими семьями',
       'letter.names':'Vlad <span>&amp;</span> Galina',
@@ -104,7 +104,7 @@
       'status.no':'Спасибо, что сообщили, {name}. Нам будет вас не хватать.'
     },
     hy: {
-      'names':'Vlad & Galina',
+      'names':'Vlad <span class="amp">&amp;</span> Galina',
       'hero.topdate':'4 հուլիսի 2026 — Երևան',
       'letter.eyebrow':'ընտանիքների հետ միասին',
       'letter.names':'Vlad <span>&amp;</span> Galina',
@@ -375,10 +375,17 @@
     function wrap() { if (half > 0) { if (pos >= half) pos -= half; else if (pos < 0) pos += half; } }
     measure();
     window.addEventListener('resize', measure);
+    // only animate while the carousel is on screen (saves CPU at the hero)
+    var visible = true;
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (es) { visible = es[0].isIntersecting; }, { threshold: 0 }).observe(car);
+    }
     if (!reduceMotion) {
       var loop = function () {
-        if (!paused && !drag) pos += 0.5;   // gentle auto-glide
-        wrap(); render();
+        if (visible) {
+          if (!paused && !drag) pos += 0.5;   // gentle auto-glide
+          wrap(); render();
+        }
         requestAnimationFrame(loop);
       };
       requestAnimationFrame(loop);
