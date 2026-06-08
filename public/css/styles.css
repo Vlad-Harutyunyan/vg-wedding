@@ -12,6 +12,7 @@
 
   --serif:  'Cormorant Garamond', Georgia, serif;
   --script: 'Ballet', cursive;
+  --signature: 'MonteCarlo', 'Ballet', cursive;
   --sans:   'Jost', system-ui, sans-serif;
 
   --maxw: 1100px;
@@ -491,7 +492,8 @@ html[lang="hy"] .script {
 html[lang="hy"] .script-accent {
   font-family: 'Noto Serif Armenian', var(--serif); font-weight: 600; font-size: 1.5rem;
 }
-/* names stay English (Latin) in every language, so keep them on the script font (Ballet) */
+/* names stay English (Latin) in every language; rendered in the signature font (MonteCarlo) */
+.hdt-names, .letter-names, .footer-names { font-family: var(--signature); }
 .letter-names span { color: var(--gold); }
 
 /* ===================== REDUCED MOTION ===================== */
