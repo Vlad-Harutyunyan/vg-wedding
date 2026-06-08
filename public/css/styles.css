@@ -108,11 +108,11 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
 }
 .hdt-names {
   font-family: var(--signature); font-size: clamp(2.6rem, 11vw, 6rem); color: var(--char);
-  display: flex; flex-direction: column; align-items: flex-start; line-height: .82;
+  display: flex; flex-direction: column; align-items: flex-start; line-height: 1;
 }
-.hdt-names .nm { display: block; }
-.hdt-names .nm:nth-of-type(2) { margin-left: 1.7em; }   /* Galina stepped right */
-.amp { font-size: .32em; font-style: italic; color: var(--char); opacity: .45; margin-left: 2.6em; }
+.hdt-names .nm { display: block; line-height: .62; }
+.hdt-names .nm:nth-of-type(2) { margin-left: 2.6em; }   /* Galina stepped further right */
+.amp { font-size: .32em; font-style: italic; color: var(--char); opacity: .45; margin-left: 4em; line-height: .9; }
 .hdt-tag { font-family: var(--serif); font-style: italic; font-size: clamp(.85rem, 2.6vw, 1.15rem); letter-spacing: .04em; color: var(--terra); }
 .hdt-date  { font-family: var(--serif); letter-spacing: .3em; text-transform: uppercase; font-size: .8rem; color: var(--terra); }
 
@@ -167,8 +167,8 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
 .cal-w { color: var(--terra); font-weight: 600; }
 .cal-wed { font-weight: 700; }
 .cal-wed .cal-heart {
-  position: absolute; left: 50%; top: 50%; transform: translate(-50%,-52%);
-  width: 2em; height: 1.85em; overflow: visible; pointer-events: none;
+  position: absolute; left: 50%; top: 50%; transform: translate(-50%,-44%);
+  width: 2.15em; height: 2em; overflow: visible; pointer-events: none;
 }
 .cal-foot { font-family: var(--serif); font-size: .68em; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin-top: .15em; }
 
@@ -242,8 +242,8 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
 }
 .photo-frame:hover { transform: translateY(-3px); }
 /* the intro couple photo stays sharp/full (no edge fade) */
-.intro-photo img {
-  -webkit-mask-image: none; mask-image: none;
+.photo-frame.intro-photo img {
+  -webkit-mask-image: none !important; mask-image: none !important;
   border-radius: 8px; box-shadow: 0 18px 42px -24px rgba(70,68,60,.5);
 }
 .photo-frame img {
