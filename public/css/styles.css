@@ -305,14 +305,16 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
 /* ===================== MOMENTS CAROUSEL (continuous) ===================== */
 .carousel {
   margin-top: 2.2rem; overflow: hidden; width: 100%;
+  cursor: grab; touch-action: pan-y; user-select: none; -webkit-user-select: none;
   -webkit-mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
           mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
 }
+.carousel:active { cursor: grabbing; }
 .carousel-track {
-  display: flex; gap: 20px; width: max-content;
-  animation: moments 44s linear infinite; will-change: transform;
+  display: flex; gap: 20px; width: max-content; will-change: transform;
 }
-.carousel:hover .carousel-track { animation-play-state: paused; }
+/* fallback marquee if JS is unavailable */
+.no-js .carousel-track { animation: moments 44s linear infinite; }
 @keyframes moments { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 .slide {
   flex: 0 0 auto; width: clamp(220px, 30vw, 320px); aspect-ratio: 4 / 3;

@@ -366,6 +366,47 @@
     });
   }
 
+  /* ===================== MOMENTS CAROUSEL (auto + drag) ===================== */
+  var car = $('.carousel'), track = car && $('.carousel-track', car);
+  if (car && track) {
+    var GAP = 20, pos = 0, half = 0, paused = false, drag = false, sx = 0, sp = 0, moved = 0;
+    function measure() { half = (track.scrollWidth + GAP) / 2; }
+    function render() { track.style.transform = 'translateX(' + (-pos) + 'px)'; }
+    function wrap() { if (half > 0) { if (pos >= half) pos -= half; else if (pos < 0) pos += half; } }
+    measure();
+    window.addEventListener('resize', measure);
+    if (!reduceMotion) {
+      var loop = function () {
+        if (!paused && !drag) pos += 0.5;   // gentle auto-glide
+        wrap(); render();
+        requestAnimationFrame(loop);
+      };
+      requestAnimationFrame(loop);
+    }
+    car.addEventListener('mouseenter', function () { paused = true; });
+    car.addEventListener('mouseleave', function () { if (!drag) paused = false; });
+    car.addEventListener('pointerdown', function (e) {
+      drag = true; paused = true; moved = 0; sx = e.clientX; sp = pos;
+      try { car.setPointerCapture(e.pointerId); } catch (_) {}
+    });
+    car.addEventListener('pointermove', function (e) {
+      if (!drag) return;
+      var dx = e.clientX - sx; moved = Math.max(moved, Math.abs(dx));
+      pos = sp - dx; wrap(); render();
+    });
+    var endDrag = function (e) {
+      if (!drag) return; drag = false;
+      try { car.releasePointerCapture(e.pointerId); } catch (_) {}
+      setTimeout(function () { paused = false; }, 1600);
+    };
+    car.addEventListener('pointerup', endDrag);
+    car.addEventListener('pointercancel', endDrag);
+    // a real drag shouldn't trigger the lightbox
+    car.addEventListener('click', function (e) {
+      if (moved > 6) { e.stopPropagation(); e.preventDefault(); }
+    }, true);
+  }
+
   /* ===================== LIGHTBOX ===================== */
   var lb = $('#lightbox'), lbImg = $('#lbImg'), lbClose = $('#lbClose');
   function openLightbox(src, alt) {
