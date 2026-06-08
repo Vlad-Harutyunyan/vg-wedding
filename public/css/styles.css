@@ -73,7 +73,7 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
 .script-accent { font-family: var(--script); font-weight: 400; font-size: 2.4rem; color: var(--terra); }
 /* these script fonts are single-weight + thin — add a hairline stroke so titles read clearly */
 .script, .script-accent, .hdt-names, .footer-names {
-  -webkit-text-stroke: .4px currentColor; paint-order: stroke fill;
+  -webkit-text-stroke: .85px currentColor; paint-order: stroke fill;
 }
 .lead { font-family: var(--serif); font-size: 1.4rem; color: var(--muted); }
 
