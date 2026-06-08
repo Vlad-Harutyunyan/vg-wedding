@@ -341,6 +341,22 @@
   }
 
   /* ===================== RSVP submit ===================== */
+  /* Paste your Google Apps Script Web App URL here (ends with /exec).
+     Leave '' to disable remote saving (data still kept in localStorage). */
+  var RSVP_ENDPOINT = '';
+
+  function sendToSheet(data) {
+    if (!RSVP_ENDPOINT) return;
+    try {
+      fetch(RSVP_ENDPOINT, {
+        method: 'POST',
+        mode: 'no-cors',                       // Apps Script: avoids CORS preflight
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify(data)
+      }).catch(function () {});                 // fire-and-forget; localStorage is the backup
+    } catch (e) {}
+  }
+
   var form = $('#rsvpForm');
   var statusEl = $('#formStatus');
   function setStatus(msg, kind) { if (statusEl) { statusEl.textContent = msg; statusEl.className = 'form-status ' + (kind || ''); } }
@@ -362,6 +378,7 @@
         var all = JSON.parse(localStorage.getItem('rsvps') || '[]');
         all.push(data); localStorage.setItem('rsvps', JSON.stringify(all));
       } catch (err) {}
+      sendToSheet(data);
       if (going === 'yes') setStatus(t('status.yes', { name: name, n: data.guests }), 'ok');
       else setStatus(t('status.no', { name: name }), 'ok');
       form.reset();
