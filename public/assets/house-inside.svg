@@ -53,7 +53,7 @@
 
   <!-- ===== people raising the first toast (stand BEHIND the table) ===== -->
   <!-- guest left -->
-  <g transform="translate(250,520)">
+  <g transform="translate(250,500)">
     <path d="M-16 0 q16 -12 32 0 L14 -2 L14 -64 q-14 -10 -28 0 L-14 -2 Z" fill="#7c5a8a"/>
     <circle cx="0" cy="-72" r="13" fill="#e6c19c"/><path d="M-13 -74.3 Q0 -85.3 13 -74.3 Q0 -76.2 -13 -74.3 Z" fill="#2e2014"/>
     <g class="toast2">
@@ -64,7 +64,7 @@
   </g>
 
   <!-- groom -->
-  <g transform="translate(330,526)">
+  <g transform="translate(330,504)">
     <path d="M-17 0 q17 -12 34 0 L15 -2 L15 -70 q-15 -11 -30 0 L-15 -2 Z" fill="#3a3744"/>
     <path d="M-2 -70 L2 -70 L1 -4 L-1 -4 Z" fill="#e6dcc8"/>
     <circle cx="0" cy="-80" r="13" fill="#e6c19c"/><path d="M-13 -82.3 Q0 -93.3 13 -82.3 Q0 -84.2 -13 -82.3 Z" fill="#2e2014"/>
@@ -76,7 +76,7 @@
   </g>
 
   <!-- bride (centre) -->
-  <g transform="translate(420,530)">
+  <g transform="translate(420,506)">
     <path d="M-26 0 q26 -16 52 0 L18 -4 L14 -74 q-14 -11 -28 0 L-18 -4 Z" fill="#fffefb"/>
     <circle cx="0" cy="-84" r="13" fill="#eecaa6"/>
     <path d="M-13 -86.3 Q0 -97.6 13 -86.3 l-2 13 q-11 -5 -22 0 Z" fill="#5a3a22"/>
@@ -90,7 +90,7 @@
   </g>
 
   <!-- guest right -->
-  <g transform="translate(530,524)">
+  <g transform="translate(530,502)">
     <path d="M-16 0 q16 -12 32 0 L14 -2 L14 -66 q-14 -10 -28 0 L-14 -2 Z" fill="#4f7fb0"/>
     <circle cx="0" cy="-74" r="13" fill="#e6c19c"/>
     <path d="M-13 -76.3 Q0 -87.6 13 -76.3 l-2 13 q-11 -5 -22 0 Z" fill="#c9a96a"/>

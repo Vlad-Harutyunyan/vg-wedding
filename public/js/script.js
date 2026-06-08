@@ -216,7 +216,7 @@
       var r = pxImg.parentElement.getBoundingClientRect();
       if (r.bottom > 0 && r.top < window.innerHeight) {
         var center = r.top + r.height / 2 - window.innerHeight / 2;
-        pxImg.style.transform = 'translateY(' + (center * -0.22).toFixed(1) + 'px)';
+        pxImg.style.transform = 'translateY(' + (center * -0.42).toFixed(1) + 'px)';
       }
     }
     // page-wide progress bar
