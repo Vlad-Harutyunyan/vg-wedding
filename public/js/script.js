@@ -153,8 +153,8 @@
 
   var lang = (function () {
     try { return localStorage.getItem('lang'); } catch (e) { return null; }
-  })() || 'hy';
-  if (!I18N[lang]) lang = 'hy';
+  })() || 'en';
+  if (!I18N[lang]) lang = 'en';
 
   function t(key, vars) {
     var s = (I18N[lang] && I18N[lang][key]) || (I18N.en[key] || key);

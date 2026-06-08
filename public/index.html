@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="hy">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -37,9 +37,9 @@
 
   <!-- language switcher -->
   <div class="lang-switch" id="langSwitch">
-    <button data-lang="hy" class="active">ՀԱՅ</button>
+    <button data-lang="hy">ՀԱՅ</button>
     <button data-lang="ru">РУС</button>
-    <button data-lang="en">ENG</button>
+    <button data-lang="en" class="active">ENG</button>
   </div>
 
   <div class="scroll-progress" id="scrollProgress"></div>
@@ -63,10 +63,17 @@
             <p class="letter-eyebrow" data-i18n="letter.eyebrow">ընտանիքների հետ միասին</p>
             <h1 class="letter-names" data-i18n="letter.names" data-i18n-html="1">Vlad <span>&amp;</span> Galina</h1>
             <p class="letter-invite" data-i18n="letter.invite">սիրով հրավիրում են Ձեզ</p>
-            <div class="letter-date">
-              <span class="d-day" data-i18n="letter.day">Շաբաթ</span>
-              <span class="d-num">04 . 07 . 2026</span>
-              <span class="d-place" data-i18n="letter.place">Երևան, Հայաստան</span>
+            <div class="cal" aria-label="Saturday, 4 July 2026 — Yerevan, Armenia">
+              <div class="cal-head">July · 2026</div>
+              <div class="cal-grid">
+                <span class="cal-dow">Su</span><span class="cal-dow">Mo</span><span class="cal-dow">Tu</span><span class="cal-dow">We</span><span class="cal-dow">Th</span><span class="cal-dow">Fr</span><span class="cal-dow">Sa</span>
+                <span></span><span></span><span></span><span>1</span><span>2</span><span>3</span><span class="cal-wed"><svg class="cal-heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-6.7-4.35-9.3-8.6C.6 9 2.4 4.8 6.4 4.8c2 0 3.4 1.3 4.6 3 1.2-1.7 2.6-3 4.6-3 4 0 5.8 4.2 3.7 7.6C18.7 16.65 12 21 12 21z" fill="#cf4b3e"/></svg><b>4</b></span>
+                <span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span>
+                <span>12</span><span>13</span><span>14</span><span>15</span><span>16</span><span>17</span><span>18</span>
+                <span>19</span><span>20</span><span>21</span><span>22</span><span>23</span><span>24</span><span>25</span>
+                <span>26</span><span>27</span><span>28</span><span>29</span><span>30</span><span>31</span><span></span>
+              </div>
+              <div class="cal-foot" data-i18n="letter.place">Երևան, Հայաստան</div>
             </div>
           </div>
 
