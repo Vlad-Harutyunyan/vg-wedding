@@ -343,7 +343,7 @@
   /* ===================== RSVP submit ===================== */
   /* Paste your Google Apps Script Web App URL here (ends with /exec).
      Leave '' to disable remote saving (data still kept in localStorage). */
-  var RSVP_ENDPOINT = '';
+  var RSVP_ENDPOINT = 'https://script.google.com/macros/s/AKfycbxsi5MKU7uvFwR0U0G68a7GEMmX34xltwLNbOpyGFK4U_MnHdiqsCXAnkpn-WG8-Xt0Dg/exec';
 
   function sendToSheet(data) {
     if (!RSVP_ENDPOINT) return;
