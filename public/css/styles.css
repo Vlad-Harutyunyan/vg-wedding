@@ -422,8 +422,11 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
 /* phones: center each event's content (photo is already centered) */
 @media (max-width: 819px) {
   .venue { justify-items: center; text-align: center; }
-  .venue-info { justify-items: center; margin: 0 auto; }
-  .venue-meta { justify-items: center; text-align: left; }
+  .venue-info { justify-items: center; margin: 0 auto; width: 100%; }
+  /* When/Where: center the block but keep rows left-aligned & the same width,
+     so the two rows line up with each other */
+  .venue-meta { justify-self: center; text-align: left; width: max-content; max-width: 100%; }
+  .venue-meta li { width: 100%; }
   .venue .btn-map { justify-self: center; }
 }
 
@@ -458,6 +461,15 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
 }
 .slide:hover { transform: translateY(-4px); }
 .slide img { width: 100%; height: 100%; object-fit: cover; display: block; }
+/* phones: bigger, near-full-width slides with thinner edge fade */
+@media (max-width: 819px) {
+  .gallery-sec { padding-left: 0; padding-right: 0; }
+  .carousel {
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
+            mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
+  }
+  .slide { width: 92vw; }
+}
 
 /* ===================== RSVP ===================== */
 .rsvp-sec { background:
