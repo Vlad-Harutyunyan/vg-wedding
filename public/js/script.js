@@ -12,7 +12,7 @@
   /* ===================== I18N ===================== */
   var I18N = {
     en: {
-      'names':'Vlad &amp; Galina',
+      'names':'Vlad & Galina',
       'hero.topdate':'4 July 2026 — Yerevan',
       'letter.eyebrow':'together with their families',
       'letter.names':'Vlad <span>&amp;</span> Galina',
@@ -58,7 +58,7 @@
       'status.no':"Thank you for letting us know, {name}. You'll be missed."
     },
     ru: {
-      'names':'Vlad &amp; Galina',
+      'names':'Vlad & Galina',
       'hero.topdate':'4 июля 2026 — Ереван',
       'letter.eyebrow':'вместе со своими семьями',
       'letter.names':'Vlad <span>&amp;</span> Galina',
@@ -104,7 +104,7 @@
       'status.no':'Спасибо, что сообщили, {name}. Нам будет вас не хватать.'
     },
     hy: {
-      'names':'Vlad &amp; Galina',
+      'names':'Vlad & Galina',
       'hero.topdate':'4 հուլիսի 2026 — Երևան',
       'letter.eyebrow':'ընտանիքների հետ միասին',
       'letter.names':'Vlad <span>&amp;</span> Galina',
