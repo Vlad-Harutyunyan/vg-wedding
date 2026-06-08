@@ -24,7 +24,7 @@
 
   --serif:  'Cormorant Garamond', Georgia, serif;
   --script: 'Ballet', cursive;
-  --signature: 'MonteCarlo', 'Ballet', cursive;
+  --signature: 'MonteCarlo', 'Noto Serif Armenian', var(--serif);
   --sans:   'Jost', system-ui, sans-serif;
 
   --maxw: 1100px;
@@ -100,7 +100,7 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
   position: absolute; top: 7vh; left: 0; right: 0; text-align: center; z-index: 6;
   display: flex; flex-direction: column; gap: .3rem; pointer-events: none;
 }
-.hdt-names { font-family: var(--script); font-size: clamp(2rem, 6vw, 3.4rem); color: var(--char); }
+.hdt-names { font-family: var(--signature); font-size: clamp(2.8rem, 9.5vw, 5.6rem); line-height: 1; color: var(--char); }
 .hdt-date  { font-family: var(--serif); letter-spacing: .3em; text-transform: uppercase; font-size: .8rem; color: var(--terra); }
 
 .envelope-stage { position: relative; z-index: 2; perspective: 1400px; }
@@ -323,7 +323,7 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
   width: 8px; height: 8px; border: 1px solid var(--gold); background: var(--cream);
 }
 .venue-info { display: grid; gap: .55rem; max-width: 520px; }
-.venue-info .script { margin-bottom: .3rem; }
+.venue-info .script { font-family: var(--signature); margin-bottom: .3rem; }
 .venue-sub { font-family: var(--serif); font-style: italic; font-size: 1.25rem; color: var(--terra); margin-top: -.4rem; }
 .venue-meta { list-style: none; display: grid; gap: .35rem; margin: .6rem 0 .4rem; }
 .venue-meta li { font-size: .95rem; color: var(--ink); border-left: 2px solid var(--gold); padding-left: .8rem; }
