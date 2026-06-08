@@ -88,8 +88,8 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
   height: 260vh;            /* tall: gives scroll distance to scrub the opening */
 }
 .hero-sticky {
-  position: sticky; top: 0; height: 100vh;
-  display: grid; place-items: center; overflow: hidden;
+  position: sticky; top: 0; height: 100vh; overflow: hidden;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
 }
 .hero-bg {
   position: absolute; inset: 0;
@@ -102,11 +102,13 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
     var(--cream);
 }
 .hero-date-top {
-  position: absolute; top: 9.5vh; left: 0; right: 0; text-align: center; z-index: 6;
-  display: flex; flex-direction: column; gap: .3rem; pointer-events: none;
+  position: relative; z-index: 6; text-align: center;
+  display: flex; flex-direction: column; align-items: center; gap: .1rem;
+  margin-bottom: clamp(.8rem, 3.5vh, 2.2rem); pointer-events: none;
 }
-.hdt-names { font-family: var(--signature); font-size: clamp(2rem, 7vw, 4.6rem); line-height: 1.1; color: var(--char); padding: 0 .4em .14em; }
+.hdt-names { font-family: var(--signature); font-size: clamp(2rem, 7vw, 4.6rem); line-height: 1.05; color: var(--char); padding: 0 .4em; }
 .amp { font-size: .58em; font-style: italic; color: var(--char); padding: 0 .04em; }
+.hdt-tag { font-family: var(--serif); font-style: italic; font-size: clamp(.85rem, 2.6vw, 1.15rem); letter-spacing: .04em; color: var(--terra); }
 .hdt-date  { font-family: var(--serif); letter-spacing: .3em; text-transform: uppercase; font-size: .8rem; color: var(--terra); }
 
 .envelope-stage { position: relative; z-index: 2; perspective: 1400px; }
@@ -148,14 +150,22 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
 .d-num  { font-family: var(--serif); font-size: 1.5rem; color: var(--char); letter-spacing: .12em; }
 .d-place{ font-size: .72rem; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); }
 
-/* compact calendar-style date inside the envelope (always fits) */
-.cal { margin-top: .5em; display: grid; justify-items: center; gap: .3em; line-height: 1; }
-.cal-head { font-family: var(--serif); font-weight: 600; letter-spacing: .2em; text-transform: uppercase; font-size: .72em; color: var(--terra); }
-.cal-day { position: relative; display: grid; place-items: center; width: 2.6em; height: 2.6em; }
-.cal-day .cal-heart { position: absolute; inset: 0; width: 100%; height: 100%; filter: drop-shadow(0 3px 4px rgba(70,68,60,.25)); }
-.cal-day b { position: relative; z-index: 1; font-family: var(--serif); font-weight: 700; font-size: 1.5em; color: #fff; }
-.cal-dow { font-family: var(--serif); font-style: italic; font-size: .9em; color: var(--char); }
-.cal-foot { font-family: var(--serif); font-size: .62em; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin-top: .15em; }
+/* calendar-grid date inside the envelope — em-sized so it scales to fit */
+.cal { margin-top: .5em; display: grid; justify-items: center; gap: .4em; line-height: 1; }
+.cal-head { font-family: var(--serif); font-weight: 600; letter-spacing: .2em; text-transform: uppercase; font-size: .82em; color: var(--terra); }
+.cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: .1em .25em; }
+.cal-grid > span {
+  font-family: var(--serif); font-size: .82em; color: var(--char);
+  width: 1.55em; height: 1.55em; display: flex; align-items: center; justify-content: center;
+  font-variant-numeric: tabular-nums; position: relative;
+}
+.cal-w { color: var(--terra); font-weight: 600; }
+.cal-wed { font-weight: 700; }
+.cal-wed .cal-heart {
+  position: absolute; left: 50%; top: 50%; transform: translate(-50%,-52%);
+  width: 2em; height: 1.85em; overflow: visible; pointer-events: none;
+}
+.cal-foot { font-family: var(--serif); font-size: .68em; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin-top: .15em; }
 
 .env-front {
   position: absolute; inset: 0; z-index: 3; border-radius: 8px;
@@ -226,6 +236,11 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
   transition: transform .4s var(--ease);
 }
 .photo-frame:hover { transform: translateY(-3px); }
+/* the intro couple photo stays sharp/full (no edge fade) */
+.intro-photo img {
+  -webkit-mask-image: none; mask-image: none;
+  border-radius: 8px; box-shadow: 0 18px 42px -24px rgba(70,68,60,.5);
+}
 .photo-frame img {
   display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover;
   /* feather all four edges so the photo melts into the page (no hard border) */

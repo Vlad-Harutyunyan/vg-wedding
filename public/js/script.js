@@ -14,6 +14,7 @@
     en: {
       'names':'Vlad <span class="amp">&amp;</span> Galina',
       'hero.topdate':'4 July 2026 — Yerevan',
+      'hero.tagtop':'together with their families','hero.tag':'are getting married',
       'letter.eyebrow':'together with their families',
       'letter.names':'Vlad <span>&amp;</span> Galina',
       'letter.invite':'request the pleasure of your company',
@@ -60,6 +61,7 @@
     ru: {
       'names':'Vlad <span class="amp">&amp;</span> Galina',
       'hero.topdate':'4 июля 2026 — Ереван',
+      'hero.tagtop':'вместе со своими семьями','hero.tag':'женятся',
       'letter.eyebrow':'вместе со своими семьями',
       'letter.names':'Vlad <span>&amp;</span> Galina',
       'letter.invite':'приглашают вас разделить радость',
@@ -106,6 +108,7 @@
     hy: {
       'names':'Vlad <span class="amp">&amp;</span> Galina',
       'hero.topdate':'4 հուլիսի 2026 — Երևան',
+      'hero.tagtop':'ընտանիքների հետ միասին','hero.tag':'ամուսնանում են',
       'letter.eyebrow':'ընտանիքների հետ միասին',
       'letter.names':'Vlad <span>&amp;</span> Galina',
       'letter.invite':'սիրով հրավիրում են Ձեզ',
