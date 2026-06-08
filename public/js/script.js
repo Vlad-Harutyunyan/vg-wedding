@@ -204,12 +204,15 @@
   var scrollHint = $('#scrollHint');
   var bar = $('#scrollProgress');
   var pxImg = $('#pxImg');
+  var heroBgImg = $('#heroBgImg');
 
   function onScroll() {
     // hero opening progress (0..1) as it scrolls through its pinned range
     if (hero && envelope) {
       var total = hero.offsetHeight - window.innerHeight;
       var scrolled = clamp(-hero.getBoundingClientRect().top, 0, total);
+      // slow parallax drift on the photo behind the envelope (oversized layer hides edges)
+      if (heroBgImg) heroBgImg.style.transform = 'translate3d(0,' + (scrolled * 0.08).toFixed(1) + 'px,0)';
       var p = total > 0 ? scrolled / total : 0;
       var flap = clamp(p / 0.30, 0, 1);
       var lift = clamp((p - 0.18) / 0.42, 0, 1);
