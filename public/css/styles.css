@@ -96,13 +96,13 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
    drift never exposes an edge on any screen size */
 .hero-bg-img {
   position: absolute; left: -3%; right: -3%; top: -16%; height: 132%;
-  background: url(../assets/img13.jpg) center 72% / cover no-repeat;
+  background: url(../assets/img14.jpg) center 60% / cover no-repeat;
   will-change: transform;
 }
-/* phones: image otherwise covers by height (position can't move it), so zoom in
-   and place the couple's faces in the band above the envelope */
+/* phones: image covers by height (position is a no-op), so zoom a touch and place
+   the couple + vista nicely under the envelope */
 @media (max-width: 819px) {
-  .hero-bg-img { background-size: auto 200%; background-position: center 34%; }
+  .hero-bg-img { background-size: auto 165%; background-position: center 58%; }
 }
 /* wash + scroll-driven dim, kept above the photo so names + card stay readable.
    softer cream wash lets the forest show; a warm tint + top/bottom frame keep the
@@ -112,13 +112,13 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
   background:
     linear-gradient(rgba(58,52,44, var(--dim,0)), rgba(58,52,44, var(--dim,0))),
     radial-gradient(125% 88% at 50% 40%, rgba(247,241,232,.62), rgba(247,241,232,.34) 55%, rgba(247,241,232,.6)),
-    linear-gradient(180deg, rgba(247,241,232,.5), rgba(247,241,232,0) 26%, rgba(247,241,232,0) 72%, rgba(58,52,44,.22)),
-    linear-gradient(rgba(178,124,91,.1), rgba(178,124,91,.1));
+    linear-gradient(180deg, rgba(247,241,232,.5), rgba(247,241,232,0) 26%, rgba(247,241,232,0) 72%, rgba(58,52,44,.18)),
+    linear-gradient(rgba(178,124,91,.05), rgba(178,124,91,.05));
 }
 .hero-date-top {
   position: relative; z-index: 6; text-align: center;
   display: flex; flex-direction: column; align-items: center; gap: .1rem;
-  margin-bottom: clamp(2.4rem, 12vh, 6.5rem); pointer-events: none;
+  margin-bottom: clamp(.8rem, 3.5vh, 2.2rem); pointer-events: none;
 }
 .hdt-names {
   margin: 20px 0;
