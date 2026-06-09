@@ -206,13 +206,25 @@
   var pxImg = $('#pxImg');
   var heroBgImg = $('#heroBgImg');
 
+  // Parallax strength: gentler on touch/small screens where scroll events fire in
+  // bursts (esp. iOS momentum) and big composited layers cause jank. 0 = static.
+  var mq = function (q) { try { return window.matchMedia(q).matches; } catch (e) { return false; } };
+  var PX_F = 0.42, HERO_F = 0.08;
+  function calcParallax() {
+    if (mq('(prefers-reduced-motion: reduce)')) { PX_F = 0; HERO_F = 0; return; }
+    var light = mq('(max-width: 819px)') || mq('(pointer: coarse)');
+    PX_F = light ? 0.16 : 0.42;
+    HERO_F = light ? 0.035 : 0.08;
+  }
+  calcParallax();
+
   function onScroll() {
     // hero opening progress (0..1) as it scrolls through its pinned range
     if (hero && envelope) {
       var total = hero.offsetHeight - window.innerHeight;
       var scrolled = clamp(-hero.getBoundingClientRect().top, 0, total);
       // slow parallax drift on the photo behind the envelope (oversized layer hides edges)
-      if (heroBgImg) heroBgImg.style.transform = 'translate3d(0,' + (scrolled * 0.08).toFixed(1) + 'px,0)';
+      if (heroBgImg) heroBgImg.style.transform = 'translate3d(0,' + (scrolled * HERO_F).toFixed(1) + 'px,0)';
       var p = total > 0 ? scrolled / total : 0;
       var flap = clamp(p / 0.30, 0, 1);
       var lift = clamp((p - 0.18) / 0.42, 0, 1);
@@ -229,7 +241,7 @@
       var r = pxImg.parentElement.getBoundingClientRect();
       if (r.bottom > 0 && r.top < window.innerHeight) {
         var center = r.top + r.height / 2 - window.innerHeight / 2;
-        pxImg.style.transform = 'translate3d(0,' + (center * -0.42).toFixed(1) + 'px,0)';
+        pxImg.style.transform = 'translate3d(0,' + (center * -PX_F).toFixed(1) + 'px,0)';
       }
     }
     // page-wide progress bar
@@ -244,7 +256,7 @@
   window.addEventListener('scroll', function () {
     if (!ticking) { requestAnimationFrame(function () { onScroll(); ticking = false; }); ticking = true; }
   }, { passive: true });
-  window.addEventListener('resize', onScroll);
+  window.addEventListener('resize', function () { calcParallax(); onScroll(); });
 
   // tap envelope -> nudge scroll so it opens
   if (envelope) {
@@ -356,13 +368,23 @@
 
   function sendToSheet(data) {
     if (!RSVP_ENDPOINT) return;
+    var body = JSON.stringify(data);
+    // sendBeacon is the most reliable: it's queued by the browser and completes
+    // even though we reset the form right after (fetch could be cancelled).
+    try {
+      if (navigator.sendBeacon) {
+        var blob = new Blob([body], { type: 'text/plain;charset=UTF-8' });
+        if (navigator.sendBeacon(RSVP_ENDPOINT, blob)) return;
+      }
+    } catch (e) {}
     try {
       fetch(RSVP_ENDPOINT, {
         method: 'POST',
         mode: 'no-cors',                       // Apps Script: avoids CORS preflight
+        keepalive: true,                       // survive page/form changes
         headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-        body: JSON.stringify(data)
-      }).catch(function () {});                 // fire-and-forget; localStorage is the backup
+        body: body
+      }).catch(function () {});                 // localStorage is the backup
     } catch (e) {}
   }
 
