@@ -32,7 +32,7 @@
       'cd.eyebrow':'save the date', 'cd.title':'Counting down',
       'cd.days':'Days','cd.hours':'Hours','cd.minutes':'Minutes','cd.seconds':'Seconds',
       'house.time':'11:00 in the morning','house.title':"The Bride's House",'house.sub':'Where the day begins',
-      'house.body':'Join us for morning coffee and the first toast at the Jasmin Wedding White House before we head to the ceremony.',
+      'house.body':'Join us for the first toast at the Jasmin Wedding White House before we head to the ceremony.',
       'meta.when':'When','meta.where':'Where',
       'house.when':'4 July, 11:00 AM','house.where':'Jasmin Wedding White House — Paris Herouni St 40, Yerevan',
       'btn.map':'Open in Maps →',
@@ -55,7 +55,7 @@
       'footer.cal':'＋ Add to calendar','footer.rem':'Set a reminder',
       'footer.note':"Made with love. We can't wait to see you there.",
       'guest.label':'Guest {n} — full name','guest.ph':'Name of guest {n}',
-      'cd.msg':'{d} days until we say "I do".','cd.today':'Today is the day!',
+      'cd.msg':'{d} days until we celebrate together.','cd.today':'Today is the day!',
       'status.noname':'Please tell us your name.','status.noattend':'Please let us know if you can attend.',
       'status.yes':"Thank you, {name}! We've saved your reply for {n} guest(s). See you on 4 July.",
       'status.no':"Thank you for letting us know, {name}. You'll be missed."
@@ -81,7 +81,7 @@
       'cd.eyebrow':'запланируйте день','cd.title':'Обратный отсчёт',
       'cd.days':'Дней','cd.hours':'Часов','cd.minutes':'Минут','cd.seconds':'Секунд',
       'house.time':'11:00 утра','house.title':'Дом невесты','house.sub':'Где начинается день',
-      'house.body':'Присоединяйтесь к утреннему кофе и первому тосту в Jasmin Wedding White House перед поездкой в церковь.',
+      'house.body':'Присоединяйтесь к первому тосту в Jasmin Wedding White House перед поездкой в церковь.',
       'meta.when':'Когда','meta.where':'Где',
       'house.when':'4 июля, 11:00','house.where':'Jasmin Wedding White House — ул. Париза Геруни 40, Ереван',
       'btn.map':'Открыть на карте →',
@@ -104,7 +104,7 @@
       'footer.cal':'＋ Добавить в календарь','footer.rem':'Поставить напоминание',
       'footer.note':'Сделано с любовью. Будем рады видеть вас.',
       'guest.label':'Гость {n} — полное имя','guest.ph':'Имя гостя {n}',
-      'cd.msg':'{d} дней до нашего «да».','cd.today':'Сегодня тот самый день!',
+      'cd.msg':'{d} дней до нашего праздника.','cd.today':'Сегодня тот самый день!',
       'status.noname':'Пожалуйста, укажите ваше имя.','status.noattend':'Пожалуйста, сообщите, сможете ли вы прийти.',
       'status.yes':'Спасибо, {name}! Мы сохранили ваш ответ на {n} гостя(ей). До встречи 4 июля.',
       'status.no':'Спасибо, что сообщили, {name}. Нам будет вас не хватать.'
@@ -130,7 +130,7 @@
       'cd.eyebrow':'նշեք օրը','cd.title':'Հաշվարկ',
       'cd.days':'Օր','cd.hours':'Ժամ','cd.minutes':'Րոպե','cd.seconds':'Վայրկյան',
       'house.time':'Առավոտյան ժ. 11:00','house.title':'Հարսի տուն','house.sub':'Որտեղ սկսվում է օրը',
-      'house.body':'Միացե՛ք մեզ առավոտյան սուրճի և առաջին կենացի համար Jasmin Wedding White House-ում՝ նախքան եկեղեցի մեկնելը։',
+      'house.body':'Միացե՛ք մեզ առաջին կենացի համար Jasmin Wedding White House-ում՝ նախքան եկեղեցի մեկնելը։',
       'meta.when':'Երբ','meta.where':'Որտեղ',
       'house.when':'4 հուլիսի, 11:00','house.where':'Jasmin Wedding White House — Փարիզ Հերունու 40, Երևան',
       'btn.map':'Բացել քարտեզում →',
@@ -153,7 +153,7 @@
       'footer.cal':'＋ Ավելացնել օրացույց','footer.rem':'Դնել հիշեցում',
       'footer.note':'Սիրով պատրաստված։ Անհամբեր սպասում ենք Ձեզ։',
       'guest.label':'Հյուր {n} — անուն ազգանուն','guest.ph':'Հյուր {n}-ի անունը',
-      'cd.msg':'{d} օր մինչև մեր «այո»-ն։','cd.today':'Այսօր այդ օրն է։',
+      'cd.msg':'{d} օր մինչև մեր տոնը։','cd.today':'Այսօր այդ օրն է։',
       'status.noname':'Խնդրում ենք նշել Ձեր անունը։','status.noattend':'Խնդրում ենք նշել՝ կներկայանա՞ք։',
       'status.yes':'Շնորհակալություն, {name}։ Պահպանեցինք Ձեր պատասխանը {n} հյուրի համար։ Կտեսնվենք հուլիսի 4-ին։',
       'status.no':'Շնորհակալություն տեղեկացնելու համար, {name}։ Կկարոտենք Ձեզ։'
@@ -304,13 +304,16 @@
   var cd = $('#countdown-timer');
   var cdMsg = $('#cdMsg');
   if (cd) {
-    var target = new Date(cd.getAttribute('data-date')).getTime();
+    var raw = cd.getAttribute('data-date');
+    var target = new Date(raw).getTime();
+    if (isNaN(target)) target = new Date(raw.replace(/-/g, '/').replace('T', ' ')).getTime(); // Safari fallback
     var U = {
       days: $('[data-unit="days"]', cd), hours: $('[data-unit="hours"]', cd),
       minutes: $('[data-unit="minutes"]', cd), seconds: $('[data-unit="seconds"]', cd)
     };
     var pad = function (n) { return (n < 10 ? '0' : '') + n; };
     var tick = function () {
+      if (isNaN(target)) return;               // never zero out on a bad parse
       var diff = target - Date.now();
       if (diff <= 0) {
         U.days.textContent = U.hours.textContent = U.minutes.textContent = U.seconds.textContent = '00';
@@ -485,20 +488,53 @@
     }, true);
   }
 
-  /* ===================== LIGHTBOX ===================== */
+  /* ===================== LIGHTBOX (with gallery prev/next) ===================== */
   var lb = $('#lightbox'), lbImg = $('#lbImg'), lbClose = $('#lbClose');
-  function openLightbox(src, alt) {
-    if (!lb) return;
-    lbImg.src = src; lbImg.alt = alt || '';
+  var lbList = [], lbIdx = 0;
+  // the moments gallery (originals only, skip the seamless-loop duplicates)
+  var galleryList = $$('.carousel-track .slide:not([aria-hidden="true"]) img').map(function (im) {
+    return { src: im.src, alt: im.alt || '' };
+  });
+  function renderLb() {
+    var im = lbList[lbIdx]; if (!im) return;
+    lbImg.src = im.src; lbImg.alt = im.alt;
+  }
+  function openLb(list, idx) {
+    if (!lb || !list.length) return;
+    lbList = list; lbIdx = idx;
+    lb.classList.toggle('has-nav', list.length > 1);   // show arrows only for multi-image sets
+    renderLb();
     lb.classList.add('open'); lb.setAttribute('aria-hidden', 'false');
   }
+  function lbStep(d) {
+    if (lbList.length < 2) return;
+    lbIdx = (lbIdx + d + lbList.length) % lbList.length;
+    renderLb();
+  }
   function closeLightbox() { if (lb) { lb.classList.remove('open'); lb.setAttribute('aria-hidden', 'true'); } }
+
   $$('.photo-zoom img').forEach(function (img) {
-    img.parentElement.addEventListener('click', function () { openLightbox(img.src, img.alt); });
+    img.parentElement.addEventListener('click', function () {
+      if (img.closest('.carousel-track') && galleryList.length) {
+        var idx = 0;
+        for (var k = 0; k < galleryList.length; k++) { if (galleryList[k].src === img.src) { idx = k; break; } }
+        openLb(galleryList, idx);                        // gallery photo -> navigable
+      } else {
+        openLb([{ src: img.src, alt: img.alt }], 0);     // single photo (venue/intro)
+      }
+    });
   });
+  var lbPrev = $('#lbPrev'), lbNext = $('#lbNext');
+  if (lbPrev) lbPrev.addEventListener('click', function (e) { e.stopPropagation(); lbStep(-1); });
+  if (lbNext) lbNext.addEventListener('click', function (e) { e.stopPropagation(); lbStep(1); });
   if (lbClose) lbClose.addEventListener('click', closeLightbox);
   if (lb) lb.addEventListener('click', function (e) { if (e.target === lb) closeLightbox(); });
-  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeLightbox(); });
+  document.addEventListener('keydown', function (e) {
+    if (!lb || !lb.classList.contains('open')) return;
+    if (e.key === 'Escape') closeLightbox();
+    else if (e.key === 'ArrowLeft') lbStep(-1);
+    else if (e.key === 'ArrowRight') lbStep(1);
+  });
 
   /* ===================== HIDDEN SCENES (click a venue) ===================== */
   var secretFound = false;
