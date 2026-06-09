@@ -98,9 +98,9 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
 /* static, colour-rich dreamy blur of the photo (overscanned so blur edges never
    show); no parallax drift */
 .hero-bg-img {
-  position: absolute; left: -6%; right: -6%; top: 0cap; height: 100vh;
+  position: absolute; left: -6%; right: -6%; top: 0; height: 100vh;
   background: url(../assets/img14.jpg) center 56% / cover no-repeat;
-  filter: saturate(1.32) contrast(1.04) brightness(1.03) blur(1px);
+  filter: saturate(1.05) contrast(1.03) brightness(1.03) blur(1.35px);
 }
 /* phones: image covers by height (position is a no-op), so zoom a touch */
 @media (max-width: 819px) {
