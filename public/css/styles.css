@@ -96,15 +96,19 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
    drift never exposes an edge on any screen size */
 .hero-bg-img {
   position: absolute; left: -3%; right: -3%; top: -16%; height: 132%;
-  background: url(../assets/img12.jpg) center 38% / cover no-repeat;
+  background: url(../assets/img13.jpg) center 60% / cover no-repeat;
   will-change: transform;
 }
-/* wash + scroll-driven dim, kept above the photo so names + card stay readable */
+/* wash + scroll-driven dim, kept above the photo so names + card stay readable.
+   softer cream wash lets the forest show; a warm tint + top/bottom frame keep the
+   green in harmony with the palette and lift the names off the dark canopy */
 .hero-bg::after {
   content: ""; position: absolute; inset: 0; pointer-events: none;
   background:
     linear-gradient(rgba(58,52,44, var(--dim,0)), rgba(58,52,44, var(--dim,0))),
-    radial-gradient(120% 95% at 50% 42%, rgba(247,241,232,.5), rgba(247,241,232,.86));
+    radial-gradient(125% 88% at 50% 40%, rgba(247,241,232,.62), rgba(247,241,232,.34) 55%, rgba(247,241,232,.6)),
+    linear-gradient(180deg, rgba(247,241,232,.5), rgba(247,241,232,0) 26%, rgba(247,241,232,0) 72%, rgba(58,52,44,.22)),
+    linear-gradient(rgba(178,124,91,.1), rgba(178,124,91,.1));
 }
 .hero-date-top {
   position: relative; z-index: 6; text-align: center;
