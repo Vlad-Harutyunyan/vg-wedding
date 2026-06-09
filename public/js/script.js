@@ -424,20 +424,20 @@
   /* ===================== MOMENTS CAROUSEL (auto + drag) ===================== */
   var car = $('.carousel'), track = car && $('.carousel-track', car);
   if (car && track) {
-    var GAP = 20, pos = 0, half = 0, paused = false, drag = false, sx = 0, sp = 0, moved = 0, target = null;
+    var GAP = 20, pos = 0, half = 0, paused = false, drag = false, sx = 0, sp = 0, moved = 0, slideTo = null;
     function measure() { half = (track.scrollWidth + GAP) / 2; }
     function render() { track.style.transform = 'translateX(' + (-pos) + 'px)'; }
     function wrap() {
       if (half > 0) {
-        if (pos >= half) { pos -= half; if (target !== null) target -= half; }
-        else if (pos < 0) { pos += half; if (target !== null) target += half; }
+        if (pos >= half) { pos -= half; if (slideTo !== null) slideTo -= half; }
+        else if (pos < 0) { pos += half; if (slideTo !== null) slideTo += half; }
       }
     }
     function stepW() { var s = track.querySelector('.slide'); return (s ? s.getBoundingClientRect().width : 280) + GAP; }
     // prev/next: tween toward a target one slide away, then resume auto-glide
     function nudge(dir) {
       paused = true;
-      target = (target === null ? pos : target) + dir * stepW();
+      slideTo = (slideTo === null ? pos : slideTo) + dir * stepW();
       clearTimeout(nudge._t); nudge._t = setTimeout(function () { paused = false; }, 2200);
     }
     var prevBtn = $('#carPrev'), nextBtn = $('#carNext');
@@ -452,9 +452,9 @@
     }
     var loop = function () {
       if (visible) {
-        if (target !== null) {                 // ease toward button target
-          var d = target - pos;
-          if (Math.abs(d) < 0.5) { pos = target; target = null; }
+        if (slideTo !== null) {                 // ease toward button target
+          var d = slideTo - pos;
+          if (Math.abs(d) < 0.5) { pos = slideTo; slideTo = null; }
           else pos += d * 0.16;
           wrap(); render();
         } else if (!reduceMotion && !paused && !drag) {
