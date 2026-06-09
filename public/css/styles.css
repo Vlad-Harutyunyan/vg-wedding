@@ -89,7 +89,8 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
 }
 .hero-sticky {
   position: sticky; top: 0; height: 100vh; overflow: hidden;
-  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  display: flex; flex-direction: column; align-items: center; justify-content: flex-start;
+  padding-top: clamp(2rem, 7vh, 5rem);   /* names + envelope sit near the top; photo shows below */
 }
 .hero-bg { position: absolute; inset: 0; overflow: hidden; background: var(--cream); }
 /* couple photo behind the envelope — own layer so it can parallax; oversized so the
@@ -122,7 +123,7 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
 }
 .hdt-names {
   margin: 20px 0;
-  font-family: var(--signature); font-size: clamp(2.6rem, 11vw, 6rem); color: var(--char);
+  font-family: var(--signature); font-size: clamp(3.1rem, 13.5vw, 6.5rem); color: var(--char);
   display: flex; flex-direction: column; align-items: flex-start; line-height: 1;
 }
 .hdt-names .nm { display: block; line-height: .62; }
@@ -138,7 +139,7 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
   --flap: 0;     /* 0 closed .. 1 open  */
   --lift: 0;     /* 0 inside .. 1 lifted */
   --sealS: 1;    /* wax seal scale/opacity */
-  position: relative; width: min(86vw, 440px); aspect-ratio: 7 / 5;
+  position: relative; width: min(74vw, 380px); aspect-ratio: 7 / 5;
   transform-style: preserve-3d;
 }
 .env-back {
