@@ -95,26 +95,25 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
 .hero-bg { position: absolute; inset: 0; overflow: hidden; background: var(--cream); }
 /* couple photo behind the envelope — own layer so it can parallax; oversized so the
    drift never exposes an edge on any screen size */
+/* static, colour-rich dreamy blur of the photo (overscanned so blur edges never
+   show); no parallax drift */
 .hero-bg-img {
-  position: absolute; left: -3%; right: -3%; top: -16%; height: 132%;
-  background: url(../assets/img14.jpg) center 60% / cover no-repeat;
-  will-change: transform;
+  position: absolute; left: -6%; right: -6%; top: -6%; height: 112vh;
+  background: url(../assets/img14.jpg) center 56% / cover no-repeat;
+  filter: saturate(1.32) contrast(1.04) brightness(1.03) blur(6px);
 }
-/* phones: image covers by height (position is a no-op), so zoom a touch and place
-   the couple + vista nicely under the envelope */
+/* phones: image covers by height (position is a no-op), so zoom a touch */
 @media (max-width: 819px) {
   .hero-bg-img { background-size: auto 165%; background-position: center 58%; }
 }
-/* wash + scroll-driven dim, kept above the photo so names + card stay readable.
-   softer cream wash lets the forest show; a warm tint + top/bottom frame keep the
-   green in harmony with the palette and lift the names off the dark canopy */
+/* keep the real colours vivid — only a soft halo behind the names/envelope for
+   readability and a light top scrim; no heavy cream wash */
 .hero-bg::after {
   content: ""; position: absolute; inset: 0; pointer-events: none;
   background:
     linear-gradient(rgba(58,52,44, var(--dim,0)), rgba(58,52,44, var(--dim,0))),
-    radial-gradient(125% 88% at 50% 40%, rgba(247,241,232,.62), rgba(247,241,232,.34) 55%, rgba(247,241,232,.6)),
-    linear-gradient(180deg, rgba(247,241,232,.5), rgba(247,241,232,0) 26%, rgba(247,241,232,0) 72%, rgba(58,52,44,.18)),
-    linear-gradient(rgba(178,124,91,.05), rgba(178,124,91,.05));
+    radial-gradient(115% 72% at 50% 24%, rgba(247,241,232,.55), rgba(247,241,232,.12) 44%, rgba(247,241,232,0) 70%),
+    linear-gradient(180deg, rgba(247,241,232,.42), rgba(247,241,232,0) 26%);
 }
 .hero-date-top {
   position: relative; z-index: 6; text-align: center;

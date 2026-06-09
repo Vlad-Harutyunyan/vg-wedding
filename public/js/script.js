@@ -223,8 +223,7 @@
     if (hero && envelope) {
       var total = hero.offsetHeight - window.innerHeight;
       var scrolled = clamp(-hero.getBoundingClientRect().top, 0, total);
-      // slow parallax drift on the photo behind the envelope (oversized layer hides edges)
-      if (heroBgImg) heroBgImg.style.transform = 'translate3d(0,' + (scrolled * HERO_F).toFixed(1) + 'px,0)';
+      // hero photo stays static (no parallax drift) — handled purely in CSS
       var p = total > 0 ? scrolled / total : 0;
       var flap = clamp(p / 0.30, 0, 1);
       var lift = clamp((p - 0.18) / 0.42, 0, 1);
